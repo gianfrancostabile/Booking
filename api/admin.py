@@ -5,10 +5,12 @@ from django.contrib import admin
 from .models import (
     City,
     Building,
-    Booking
+    Booking,
+    BookingDate
 )
 
 # Register your models here.
 admin.site.register(City)
 admin.site.register(Building)
 admin.site.register(Booking)
+admin.site.register(BookingDate)

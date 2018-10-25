@@ -19,52 +19,52 @@ from .models import (
 
 
 # -------------------------- City ------------------------------------ #
-
-
-class CityCreate(CreateView):
-    model = City
-    success_url = reverse_lazy('cities:list')
-    fields = ['name']
-
-
-class CityUpdate(UpdateView):
-    model = City
-    success_url = reverse_lazy('cities:list')
-    fields = ['name']
-
-
-class CityDelete(DeleteView):
-    model = City
-    success_url = reverse_lazy('cities:list')
-
-
-class CityList(ListView):
-    model = City
-
-
-class CityDetail(DetailView):
-    model = City
-
+#
+#
+# class CityCreate(CreateView):
+#     model = City
+#     success_url = reverse_lazy('cities:list')
+#     fields = ['name']
+#
+#
+# class CityUpdate(UpdateView):
+#     model = City
+#     success_url = reverse_lazy('cities:list')
+#     fields = ['name']
+#
+#
+# class CityDelete(DeleteView):
+#     model = City
+#     success_url = reverse_lazy('cities:list')
+#
+#
+# class CityList(ListView):
+#     model = City
+#
+#
+# class CityDetail(DetailView):
+#     model = City
+#
 
 # -------------------------- BUILDING ------------------------------------ #
 
 
-class BuildingCreate(CreateView):
-    model = Building
-    success_url = reverse_lazy('buildings:list')
-    fields = ['title', 'facilities', 'services', 'cant_pax', 'begin_date', 'end_date', 'daily_cost', 'image', 'city']
-
-
-class BuildingUpdate(UpdateView):
-    model = Building
-    success_url = reverse_lazy('buildings:list')
-    fields = ['title', 'facilities', 'services', 'cant_pax', 'begin_date', 'end_date', 'daily_cost', 'image', 'city']
-
-
-class BuildingDelete(DeleteView):
-    model = Building
-    success_url = reverse_lazy('buildings:list')
-
+# class BuildingCreate(CreateView):
+#     model = Building
+#     success_url = reverse_lazy('buildings:list')
+#     fields = ['title', 'facilities', 'services', 'cant_pax', 'begin_date', 'end_date', 'daily_cost', 'image', 'city']
+#
+#
+# class BuildingUpdate(UpdateView):
+#     model = Building
+#     success_url = reverse_lazy('buildings:list')
+#     fields = ['title', 'facilities', 'services', 'cant_pax', 'begin_date', 'end_date', 'daily_cost', 'image', 'city']
+#
+#
+# class BuildingDelete(DeleteView):
+#     model = Building
+#     success_url = reverse_lazy('buildings:list')
+#
 
 class BuildingList(ListView):
     model = Building
@@ -75,30 +75,30 @@ class BuildingDetail(DetailView):
 
 
 # -------------------------- Booking ------------------------------------ #
-
-
-class BookingCreate(CreateView):
-    model = Booking
-    success_url = reverse_lazy('bookings:list')
-    fields = ['user', 'building']
-
-
-class BookingUpdate(UpdateView):
-    model = Booking
-    success_url = reverse_lazy('bookings:list')
-    fields = ['user', 'building']
-
-
-class BookingDelete(DeleteView):
-    model = Booking
-    success_url = reverse_lazy('bookings:list')
-
-
-class BookingList(ListView):
-    model = Booking
-
-
-class BookingDetail(DetailView):
-    model = Booking
-
-
+#
+#
+# class BookingCreate(CreateView):
+#     model = Booking
+#     success_url = reverse_lazy('bookings:list')
+#     fields = ['user', 'building']
+#
+#
+# class BookingUpdate(UpdateView):
+#     model = Booking
+#     success_url = reverse_lazy('bookings:list')
+#     fields = ['user', 'building']
+#
+#
+# class BookingDelete(DeleteView):
+#     model = Booking
+#     success_url = reverse_lazy('bookings:list')
+#
+#
+# class BookingList(ListView):
+#     model = Booking
+#
+#
+# class BookingDetail(DetailView):
+#     model = Booking
+#
+#
