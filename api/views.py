@@ -1,104 +1,31 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.views.generic import (
-    CreateView,
-    DeleteView,
-    UpdateView,
-    ListView,
-    DetailView
-)
-from django.core.urlresolvers import reverse_lazy
 from .models import (
     City,
     Building,
-    Booking
+    BookingDate
 )
 # Create your views here.
 
 
-# -------------------------- City ------------------------------------ #
-#
-#
-# class CityCreate(CreateView):
-#     model = City
-#     success_url = reverse_lazy('cities:list')
-#     fields = ['name']
-#
-#
-# class CityUpdate(UpdateView):
-#     model = City
-#     success_url = reverse_lazy('cities:list')
-#     fields = ['name']
-#
-#
-# class CityDelete(DeleteView):
-#     model = City
-#     success_url = reverse_lazy('cities:list')
-#
-#
-# class CityList(ListView):
-#     model = City
-#
-#
-# class CityDetail(DetailView):
-#     model = City
-#
-
-# -------------------------- BUILDING ------------------------------------ #
+def retrieve_all(request):
+    buildings = Building.objects.all()
+    return buildings
 
 
-# class BuildingCreate(CreateView):
-#     model = Building
-#     success_url = reverse_lazy('buildings:list')
-#     fields = ['title', 'facilities', 'services', 'cant_pax', 'begin_date', 'end_date', 'daily_cost', 'image', 'city']
-#
-#
-# class BuildingUpdate(UpdateView):
-#     model = Building
-#     success_url = reverse_lazy('buildings:list')
-#     fields = ['title', 'facilities', 'services', 'cant_pax', 'begin_date', 'end_date', 'daily_cost', 'image', 'city']
-#
-#
-# class BuildingDelete(DeleteView):
-#     model = Building
-#     success_url = reverse_lazy('buildings:list')
-#
-
-class BuildingList(ListView):
-    model = Building
+def retrieve(request, building_id):
+    buildings = Building.objects.get(pk=building_id)
+    return buildings
 
 
-class BuildingDetail(DetailView):
-    model = Building
+def retrieve_by_params(request, city_name, start_date, end_date):
+    buildings = []
+    booking_dates = BookingDate.objects.filter(date__range=(start_date, end_date))
+    for db in booking_dates:
+        if db.city.name == city_name:
+            buildings.append(db)
+
+    return buildings
 
 
-# -------------------------- Booking ------------------------------------ #
-#
-#
-# class BookingCreate(CreateView):
-#     model = Booking
-#     success_url = reverse_lazy('bookings:list')
-#     fields = ['user', 'building']
-#
-#
-# class BookingUpdate(UpdateView):
-#     model = Booking
-#     success_url = reverse_lazy('bookings:list')
-#     fields = ['user', 'building']
-#
-#
-# class BookingDelete(DeleteView):
-#     model = Booking
-#     success_url = reverse_lazy('bookings:list')
-#
-#
-# class BookingList(ListView):
-#     model = Booking
-#
-#
-# class BookingDetail(DetailView):
-#     model = Booking
-#
-#

@@ -11,6 +11,17 @@ from .models import (
 
 # Register your models here.
 admin.site.register(City)
-admin.site.register(Building)
 admin.site.register(Booking)
-admin.site.register(BookingDate)
+
+
+class BookingDateInline(admin.TabularInline):
+    model = BookingDate
+    fk_name = 'building'
+    max_num = 7
+
+
+class AdminBuildingInline(admin.ModelAdmin):
+    inlines = [BookingDateInline]
+
+
+admin.site.register(Building, AdminBuildingInline)
