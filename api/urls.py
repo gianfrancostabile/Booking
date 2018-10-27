@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import (
-    BuildingView
-)
+import views
 
 
 urlpatterns = [
-    url(r'^building/$', BuildingView.as_view(), name='buildingList'),
-    # url(r'^building/(?P<pk>\d+)$', BuildingDetail.as_view(), name='buildingDetail'),
+    url(r'^building/all/$', views.retrieve_all, name='buildingList'),
+    url(r'^building/(?P<building_id>\d+)$', views.retrieve, name='buildingOne'),
+    url(r'^building/$', views.retrieve_by_params, name='buildingList'),
 ]

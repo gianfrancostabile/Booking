@@ -31,12 +31,11 @@ class Building(models.Model):
 
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
     total_cost = models.FloatField()
 
     def __str__(self):
-        return self.user + ' ' + self.building
+        return self.building + ' ' + self.total_cost
 
 
 class BookingDate(models.Model):
@@ -45,5 +44,5 @@ class BookingDate(models.Model):
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
-        return self.booking.user.email + ' - ' + self.building.title + ' - ' + self.date
+        return self.building.title + ' - ' + self.date
 
