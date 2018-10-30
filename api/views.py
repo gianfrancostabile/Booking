@@ -29,10 +29,18 @@ def retrieve_by_params(request):
         start_date = request.POST.get("start_date")
         end_date = request.POST.get("end_date")
 
-        booking_dates = BookingDate.objects.filter(date__range=(start_date, end_date))
-        for db in booking_dates:
-            if db.city.name == city_name:
-                buildings.append(db)
+        if start_date and end_date:
+            booking_dates = BookingDate.objects.filter(date__range=(start_date, end_date))
+        else:
+            booking_dates = BookingDate.objects.all()
+
+        buildings = map(lambda obj: obj.city, booking_dates)
+
+        if city_name:
+            buildings = filter(lambda obj: obj.name == city_name, buildings)
+            # for db in booking_dates:
+            #     if db.city.name == city_name:
+            #         buildings.append(db)
 
     return render(request, "template.html", {'buildings': buildings})
 
