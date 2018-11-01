@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Topic 2 - OOP-inheritance</title>
+    <meta name="description" content="02-OOP-inheritance">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body id="bookingPage">
+    <header>
+        <!-- Just an image -->
+        <nav class="navbar navbar-light " id="theNav">
+            <a class="navbar-brand" href="#">
+                <img src="img/favicon.png" width="50" height="50" alt=""> Tribooking
+            </a>
+        </nav>
+    </header>
+    <div class="mt-5">
+        <!--  margin-top to $spacer * 3 -->
+    </div>
+    <main class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <form>
+
+                    <input type="hidden" value="    " name="building_id">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" placeholder="Nombre">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="surname">Apellido</label>
+                            <input type="text" class="form-control" id="surname" placeholder="Apellido">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="stabile_giles_simone@el-mejor-tp.com">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="begin_date">Dias</label>
+                            <select name="date" id="date" class="form-control" multiple></select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="number_card">Tarjeta de Credito</label>
+                            <input type="text" class="form-control" id="number_card" placeholder="xxxx-xxxx-xxxx-xxxx">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cvv">CVV</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="xxx">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="pax">Personas</label>
+                            <select class="form-control" id="pax">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Reservar</button>
+                </form>
+            </div>
+            <div class="px-2">
+                <!--  padding set both *-top and *-bottom to $spacer * 0.5 -->
+            </div>
+            <div class="col-sm-5">
+                <div class="card" style="width: 45rem;">
+                    <img class="img-fluid" src="https://static.grandvoyage.com/img/overwater_private_villa_en_maldivas-790x395.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title"> ( Cambiar por Nombre del Hotel ), ( Ciudad del Hotel )</h5>
+                        <p class="card-text"> ( Cambiar por breve descripcion del hotel )</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> (Tiene Heladera) (Tiene SPA) (Tiene Baño) (Tiene Pileta) </li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> ( Precio $$$ / Noche ) </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--Scripts-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
