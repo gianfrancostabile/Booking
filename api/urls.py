@@ -19,7 +19,6 @@ import views
 
 
 urlpatterns = [
-    url(r'^building/all/$', views.retrieve_all, name='buildingList'),
-    url(r'^building/(?P<building_id>\d+)$', views.retrieve, name='buildingOne'),
-    url(r'^building/$', views.retrieve_by_params, name='buildingList'),
+    url(r'^building/$', views.retrieve_all, name='buildings_list'),
+    url(r'^building/(?P<building_id>\d+)$', views.retrieve, name='building_one')
 ]

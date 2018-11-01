@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tribooking</title>
+</head>
+<body>
+    {{ building.title }}
+
+    <ul>
+    {% for date in dates %}
+        <li>{{ date.date }}</li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>

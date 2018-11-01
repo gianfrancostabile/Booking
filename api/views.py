@@ -14,16 +14,16 @@ from django.shortcuts import render
 
 def retrieve_all(request):
     buildings = Building.objects.all()
-    return render(request, 'template.html', {'buildings': buildings})
+    return render(request, 'buildings_list.html', {'buildings': buildings})
 
 
 def retrieve(request, building_id):
     building = Building.objects.get(pk=building_id)
-    return render(request, 'template.html', {'building': building})
+    dates = BookingDate.objects.filter(building=building.pk, booking=None)
+    return render(request, 'building_one.html', {'building': building, 'dates': dates})
 
 
 def retrieve_by_params(request):
-    buildings = []
     if request.method == "POST":
         city_name = request.POST.get("city_name")
         start_date = request.POST.get("start_date")
@@ -38,22 +38,19 @@ def retrieve_by_params(request):
 
         if city_name:
             buildings = filter(lambda obj: obj.name == city_name, buildings)
-            # for db in booking_dates:
-            #     if db.city.name == city_name:
-            #         buildings.append(db)
+    else:
+        buildings = Building.objects.all()
 
-    return render(request, "template.html", {'buildings': buildings})
+    return render(request, "buildings_list.html", {'buildings': buildings})
 
 
 def create_booking(request):
     if request.method == "POST":
         building_id = request.POST.get("building_id")
-        start_date = request.POST.get("start_date")
-        end_date = request.POST.get("end_date")
+        dates = request.POST.get("dates")
 
         building = Building.objects.get(pk=building_id)
         booking = Booking()
         booking.building = building
-        booking.total_cost = (end_date - start_date).days
 
     return render(request, "template.html")
