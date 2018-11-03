@@ -17,7 +17,7 @@ admin.site.register(Booking)
 class BookingDateInline(admin.TabularInline):
     model = BookingDate
     fk_name = 'building'
-    max_num = 7
+    extra = 0
 
 
 class AdminBuildingInline(admin.ModelAdmin):

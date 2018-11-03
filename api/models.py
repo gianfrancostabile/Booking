@@ -2,9 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils.timezone import now
-import datetime
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from django.db import models
 
 # Create your models here.
 
@@ -16,6 +17,9 @@ class City(models.Model):
         return self.name
 
 
+private_storage = FileSystemStorage(location=settings.PRIVATE_STORAGE_ROOT)
+
+
 class Building(models.Model):
     title = models.CharField(max_length=50)
     facilities = models.TextField(max_length=500)
@@ -23,7 +27,7 @@ class Building(models.Model):
     cant_pax = models.PositiveSmallIntegerField()
     stars = models.PositiveSmallIntegerField(default=1)
     daily_cost = models.FloatField()
-    image = models.ImageField()
+    image = models.ImageField(storage=private_storage)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
 
     def __unicode__(self):
@@ -35,7 +39,7 @@ class Booking(models.Model):
     total_cost = models.FloatField()
 
     def __unicode__(self):
-        return self.building
+        return str(self.pk) + ' - ' + self.building.__str__()
 
 
 class BookingDate(models.Model):
@@ -44,5 +48,5 @@ class BookingDate(models.Model):
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE, default=None, null=True, blank=True)
 
     def __unicode__(self):
-        return self.date.__str__()
+        return self.date.__str__() + ' - ' + self.building.__str__()
 

@@ -20,5 +20,7 @@ import views
 
 urlpatterns = [
     url(r'^building/$', views.retrieve_all, name='buildings_list'),
-    url(r'^building/(?P<building_id>\d+)$', views.retrieve, name='building_one')
+    url(r'^building/(?P<building_id>\d+)$', views.retrieve, name='building_one'),
+    url(r'^building/filter/$', views.retrieve_by_params, name='building_filter'),
+    url(r'^booking/$', views.create_booking, name='booking_create'),
 ]
