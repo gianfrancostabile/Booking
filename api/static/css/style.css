@@ -1,0 +1,27 @@
+body {
+    max-width: 1600px;
+    margin: 0 auto;
+    font-family: Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.star-rating {
+    line-height:32px;
+    font-size:1.25em;
+  }
+  
+.star-rating .fa-star{color: yellow;}
+
+#theNav {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bcea+37,90bff0+39,a2daf5+69,6ba8e5+88,6ba8e5+100,bdf3fd+100 */
+    background: rgb(184,225,252); /* Old browsers */
+    background: -moz-linear-gradient(top, rgb(184,225,252) 0%, rgb(169,210,243) 10%, rgb(144,188,234) 37%, rgb(144,191,240) 39%, rgb(162,218,245) 69%, rgb(107,168,229) 88%, rgb(107,168,229) 100%, rgb(189,243,253) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgb(184,225,252) 0%,rgb(169,210,243) 10%,rgb(144,188,234) 37%,rgb(144,191,240) 39%,rgb(162,218,245) 69%,rgb(107,168,229) 88%,rgb(107,168,229) 100%,rgb(189,243,253) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgb(184,225,252) 0%,rgb(169,210,243) 10%,rgb(144,188,234) 37%,rgb(144,191,240) 39%,rgb(162,218,245) 69%,rgb(107,168,229) 88%,rgb(107,168,229) 100%,rgb(189,243,253) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=0 ); /* IE6-9 */
+}
+
+#bookingPage {
+    background-image: url('../img/maldivas-playa-paraiso.jpg');
+}

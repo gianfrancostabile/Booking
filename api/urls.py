@@ -15,39 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import (
-    CityCreate,
-    CityUpdate,
-    CityDelete,
-    CityList,
-    CityDetail,
-    BuildingCreate,
-    BuildingUpdate,
-    BuildingDelete,
-    BuildingList,
-    BuildingDetail,
-    BookingCreate,
-    BookingUpdate,
-    BookingDelete,
-    BookingList,
-    BookingDetail
-)
+import views
 
 
 urlpatterns = [
-    url(r'^city/$', CityList.as_view(), name='cityList'),
-    url(r'^city/(?P<pk>\d+)$', CityDetail.as_view(), name='cityDetail'),
-    url(r'^city/create$', CityCreate.as_view(), name='cityCreate'),
-    url(r'^city/update/(?P<pk>\d+)$', CityUpdate.as_view(), name='cityUpdate'),
-    url(r'^city/delete/(?P<pk>\d+)$', CityDelete.as_view(), name='cityDelete'),
-    url(r'^building/$', BuildingList.as_view(), name='buildingList'),
-    url(r'^building/(?P<pk>\d+)$', BuildingDetail.as_view(), name='buildingDetail'),
-    url(r'^building/create$', BuildingCreate.as_view(), name='buildingCreate'),
-    url(r'^building/update/(?P<pk>\d+)$', BuildingUpdate.as_view(), name='buildingUpdate'),
-    url(r'^building/delete/(?P<pk>\d+)$', BuildingDelete.as_view(), name='buildingDelete'),
-    url(r'^booking/$', BookingList.as_view(), name='bookingList'),
-    url(r'^booking/(?P<pk>\d+)$', BookingDetail.as_view(), name='bookingDetail'),
-    url(r'^booking/create$', BookingCreate.as_view(), name='bookingCreate'),
-    url(r'^booking/update/(?P<pk>\d+)$', BookingUpdate.as_view(), name='bookingUpdate'),
-    url(r'^booking/delete/(?P<pk>\d+)$', BookingDelete.as_view(), name='bookingDelete'),
+    url(r'^building/$', views.retrieve_all, name='buildings_list'),
+    url(r'^building/(?P<building_id>\d+)$', views.retrieve, name='building_one'),
+    url(r'^building/filter/$', views.retrieve_by_params, name='building_filter'),
+    url(r'^booking/$', views.create_booking, name='booking_create'),
 ]
