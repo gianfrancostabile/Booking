@@ -71,7 +71,7 @@ def create_booking(request):
 
         booking = Booking()
         booking.building = building
-        booking.total_cost = building.daily_cost * float(cant_pax)
+        booking.total_cost = building.daily_cost * float(cant_pax) * len(dates_pk)
         booking.save()
 
         for date_pk in dates_pk:
