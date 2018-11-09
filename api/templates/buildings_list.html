@@ -222,7 +222,7 @@ h3{
           </div>
           <div class="card-body row">
 
-            <form class="mt-2" action="{% url 'api:building_filter' %}" method="POST">
+            <form class="mt-2" action="{% url 'api:building_filter' %}" method="POST"> {% csrf_token %}
               <div class="form-row mt-2">
                 <div class="form-group col-md-12">
                   <label for="input-donde">Nombre de la ciudad</label>
