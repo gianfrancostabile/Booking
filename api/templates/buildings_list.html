@@ -215,7 +215,7 @@ h3{
 
     <section class="row" style="background-image:url({% static 'img/fondo03.jpg' %}); background-repeat: no-repeat; background-size: cover; height: 90vh;">
       <section class="col-md-6 mt-5 ml-5">
-        <div class="card" style="width:400px;height:400px; background-color:white; box-shadow: 0 0 15px 10px rgba(0,0,0,.6);">
+        <div class="card" style="width:400px; background-color:white; box-shadow: 0 0 15px 10px rgba(0,0,0,.6);">
 
           <div class="card-header text-center" style="color:black;">
             Busca tu Alojamiento en Tribooking
@@ -227,6 +227,12 @@ h3{
                 <div class="form-group col-md-12">
                   <label for="input-donde">Nombre de la ciudad</label>
                   <input type="text" name="city_name" class="form-control" id="input-donde" placeholder="Donde quieres ir">
+                </div>
+              </div>
+              <div class="form-row mt-2">
+                <div class="form-group col-md-12">
+                  <label for="input-pax">Cantidad Pax</label>
+                  <input type="number" name="cant_pax" class="form-control" id="input-pax" min="0" value="1">
                 </div>
               </div>
               <div class="form-row mt-4">

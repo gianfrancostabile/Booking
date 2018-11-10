@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from .models import (
-    City,
     Building,
     Booking,
     BookingDate
@@ -15,7 +14,6 @@ from django.shortcuts import render, redirect
 def building_mapper(building):
     building.stars = range(building.stars)
     return building
-
 
 def retrieve_all(request):
     buildings = map(building_mapper,Building.objects.all())
@@ -32,6 +30,7 @@ def retrieve(request, building_id):
 def retrieve_by_params(request):
     if request.method == "POST":
         city_name = request.POST.get("city_name")
+        pax = int(request.POST.get("cant_pax"))
         begin_date = request.POST.get("begin_date")
         end_date = request.POST.get("end_date")
 
@@ -55,6 +54,9 @@ def retrieve_by_params(request):
 
         if city_name:
             buildings = filter(lambda obj: obj.city.name == city_name, buildings)
+
+        if pax > 0:
+            buildings = filter(lambda obj: obj.cant_pax >= pax, buildings)
     else:
         buildings = map(building_mapper, Building.objects.all())
 
